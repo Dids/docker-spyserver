@@ -1,3 +1,7 @@
 #!/usr/bin/with-contenv bash
 
-exec /app/spyserver /config/spyserver.config
+# FIXME: Nothing is being logged, so let's try fixing that
+#exec /app/spyserver /config/spyserver.config
+echo "" > /log/spyserver.log
+echo "" > /log/spyserver.error.log
+exec /app/spyserver /config/spyserver.config 2> /log/spyserver.error.log 1> /log/spyserver.log
